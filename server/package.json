@@ -1,0 +1,235 @@
+{
+  "name": "vaulttext-server",
+  "version": "1.0.0",
+  "description": "VaultText Advanced Platform - Backend Server with Free-for.dev Integrations",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "setup": "npm install && node scripts/setup-db.js",
+    "migrate": "sequelize-cli db:migrate",
+    "seed": "sequelize-cli db:seed:all",
+    "build": "npm run lint && npm run test",
+    "docker:build": "docker build -t vaulttext-server .",
+    "docker:run": "docker run -p 5000:5000 vaulttext-server",
+    "security:audit": "npm audit",
+    "security:scan": "snyk test"
+  },
+  "keywords": [
+    "vaulttext",
+    "document-management",
+    "virtual-numbers",
+    "otp-verification",
+    "blockchain",
+    "ai-analysis",
+    "free-services",
+    "security"
+  ],
+  "author": "VaultText Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "multer": "^1.4.5-lts.1",
+    "socket.io": "^4.7.4",
+    "ws": "^8.14.2",
+    "redis": "^4.6.10",
+    "pg": "^8.11.3",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.3",
+    "sequelize": "^6.35.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "nodemailer": "^6.9.7",
+    "twilio": "^4.19.0",
+    "axios": "^1.6.2",
+    "sharp": "^0.32.6",
+    "ffmpeg": "^0.0.4",
+    "pdf-parse": "^1.1.1",
+    "mammoth": "^1.6.0",
+    "xlsx": "^0.18.5",
+    "csv-parser": "^3.0.0",
+    "archiver": "^6.0.1",
+    "extract-zip": "^2.0.1",
+    "compression": "^1.7.4",
+    "express-fileupload": "^1.4.3",
+    "cron": "^3.1.6",
+    "winston": "^3.11.0",
+    "joi": "^17.11.0",
+    
+    "@sentry/node": "^7.81.1",
+    "@sentry/profiling-node": "^1.3.0",
+    "@sentry/integrations": "^7.81.1",
+    
+    "backblaze-b2": "^1.7.4",
+    
+    "resend": "^2.0.0",
+    "emailjs-com": "^3.2.0",
+    
+    "@huggingface/inference": "^2.6.1",
+    "comet-ml": "^3.43.3",
+    "neptune-client": "^1.8.5",
+    
+    "pusher": "^5.1.3",
+    "ably": "^1.2.45",
+    
+    "auth0": "^4.2.0",
+    "supertokens-node": "^16.7.6",
+    
+    "newrelic": "^11.7.0",
+    "pino": "^8.16.2",
+    "rollbar": "^2.26.2",
+    
+    "snyk": "^1.1260.0",
+    
+    "tatum": "^4.2.15",
+    "moralis": "^2.23.2",
+    "web3": "^4.2.2",
+    "ethers": "^6.8.1",
+    
+    "algolia": "^4.22.0",
+    
+    "datadog-metrics": "^0.9.3",
+    "grafana-api": "^2.3.0",
+    
+    "messagebird": "^3.8.1",
+    "vonage": "^3.12.0",
+    "plivo": "^4.58.0",
+    
+    "ioredis": "^5.3.2",
+    "bull": "^4.12.2",
+    
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-github2": "^0.1.12",
+    
+    "speakeasy": "^2.0.0",
+    "qrcode": "^1.5.3",
+    
+    "elasticsearch": "^16.7.3",
+    
+    "face-api.js": "^0.22.2",
+    
+    "stripe": "^14.7.0",
+    
+    "ipfs-http-client": "^60.0.1",
+    
+    "cloudflare": "^2.9.1",
+    
+    "uuid": "^9.0.1",
+    "crypto-js": "^4.2.0",
+    "node-forge": "^1.3.1",
+    
+    "moment": "^2.29.4",
+    "date-fns": "^2.30.0",
+    
+    "lodash": "^4.17.21",
+    "ramda": "^0.29.1",
+    
+    "jsonwebtoken": "^9.0.2",
+    "express-jwt": "^8.4.1",
+    
+    "validator": "^13.11.0",
+    "sanitize-html": "^2.11.0",
+    
+    "compression": "^1.7.4",
+    "express-slow-down": "^2.0.1",
+    
+    "connect-redis": "^7.1.0",
+    "express-session": "^1.17.3",
+    
+    "nodemon": "^3.0.2",
+    "pm2": "^5.3.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.55.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-plugin-security": "^1.7.1",
+    "prettier": "^3.1.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.2",
+    "ts-node": "^10.9.1",
+    "sequelize-cli": "^6.6.2",
+    "cross-env": "^7.0.3",
+    "concurrently": "^8.2.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "**/*.js",
+      "!node_modules/**",
+      "!coverage/**",
+      "!jest.config.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:security/recommended"
+    ],
+    "env": {
+      "node": true,
+      "es2022": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2022,
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-console": "warn",
+      "no-unused-vars": "error",
+      "security/detect-object-injection": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaulttext/platform.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vaulttext/platform/issues"
+  },
+  "homepage": "https://vaulttext.com"
+}
