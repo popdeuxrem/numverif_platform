@@ -23,6 +23,9 @@ import virtualNumberRoutes from './routes/virtualNumbers.js';
 import otpRoutes from './routes/otp.js';
 import biometricRoutes from './routes/biometric.js';
 import encryptionRoutes from './routes/encryption.js';
+import emailToSMSRoutes from './routes/email-to-sms.js';
+import tempSocialNumbersRoutes from './routes/temp-social-numbers.js';
+import freeServicesRoutes from './routes/free-services.js';
 
 // Import middleware
 import { authMiddleware } from './middleware/auth.js';
@@ -162,6 +165,9 @@ app.use('/api/virtual-numbers', authMiddleware, virtualNumberRoutes);
 app.use('/api/otp', otpRoutes);
 app.use('/api/biometric', authMiddleware, biometricRoutes);
 app.use('/api/encryption', authMiddleware, encryptionRoutes);
+app.use('/api/email-to-sms', emailToSMSRoutes);
+app.use('/api/temp-social-numbers', tempSocialNumbersRoutes);
+app.use('/api/free-services', authMiddleware, freeServicesRoutes);
 
 // WebSocket Integration
 initializeWebSocket(io, redis);
